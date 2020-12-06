@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+   alpine-sqs:
+     image: roribio16/alpine-sqs:latest
+     container_name: alpine-sqs
+     ports:
+       - "9324:9324"
+       - "9325:9325"
+     volumes:
+      - type: bind
+        source: ./dev/sqs/elasticmq.conf
+        target: /opt/custom/elasticmq.conf
+     stdin_open: true
+     tty: true
