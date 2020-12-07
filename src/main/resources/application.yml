@@ -1,0 +1,4 @@
+app:
+   sqs:
+      input-queue:
+         url: http://localhost:9324/queue/input-queue

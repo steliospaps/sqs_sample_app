@@ -12,7 +12,13 @@ aws configure --profile=fake
 
 then you can send messages to the queue:
 ```
-aws --profile=fake --endpoint-url http://localhost:9324 sqs send-message --queue-url http://localhost:9324/queue/default --message-body "Hello, queue!"
+aws --profile=fake --endpoint-url http://localhost:9324 sqs send-message --queue-url http://localhost:9324/queue/input-queue --message-body '{"accountId":"ABCDEF","oauthToken":"a1234","targetValue":1e+5,"alertWhenBigger":true,"alertPayload":"abcdefgh"}'
+```
+
+run the app:
+
+```
+AWS_PROFILE=fake java -jar target/*.jar
 ```
 
 # references
