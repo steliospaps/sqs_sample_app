@@ -1,23 +1,19 @@
 package io.github.steliospaps.ighackathon.realitimecomponent;
 
+import org.springframework.cloud.aws.messaging.listener.annotation.SqsListener;
 import org.springframework.stereotype.Component;
 
-import io.reflectoring.sqs.api.SqsMessageHandler;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class AccountBalanceAlertRequestHandler implements SqsMessageHandler<AccountBalanceAlertRequest> {
+public class AccountBalanceAlertRequestHandler {
 
-	@Override
+	
+	@SqsListener(value = "input-queue")
 	public void handle(AccountBalanceAlertRequest message) {
 		log.info("handle {}",message);
 		
-	}
-
-	@Override
-	public Class<AccountBalanceAlertRequest> messageType() {
-		return AccountBalanceAlertRequest.class;
 	}
 
 }
