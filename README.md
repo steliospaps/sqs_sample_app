@@ -1,18 +1,20 @@
 # local dev
-## dev sqs
 ```
 docker-compose up
 ```
-then access the console at http://localhost:9325/
 
 make a fake profile for aws cli
 ```
 aws configure --profile=fake
 ```
+then create the queues
+```
+aws --profile fake --endpoint-url http://localhost:4566 sqs create-queue --queue-name input-queue
 
+```
 then you can send messages to the queue:
 ```
-aws --profile=fake --endpoint-url http://localhost:9324 sqs send-message --queue-url http://localhost:9324/queue/input-queue --message-body '{"accountId":"ABCDEF","oauthToken":"a1234","targetValue":1e+5,"alertWhenBigger":true,"alertPayload":"abcdefgh"}'
+aws --profile=fake --endpoint-url http://localhost:4566 sqs send-message --queue-name input-queue --message-body '{"accountId":"ABCDEF","oauthToken":"a1234","targetValue":1e+5,"alertWhenBigger":true,"alertPayload":"abcdefgh"}'
 ```
 
 run the app:

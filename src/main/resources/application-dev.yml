@@ -1,4 +1,40 @@
-cloud.aws.credentials.useDefaultAwsCredentialsChain: true
-#cloud.aws.region.static: local
-cloud.aws.stack.auto: false
-spring.autoconfigure.exclude: org.springframework.cloud.aws.autoconfigure.metrics.CloudWatchExportAutoConfiguration
+#cloud.aws.credentials.useDefaultAwsCredentialsChain: true
+cloud:
+   aws:
+      region:
+         static: eu-west-1
+      stack:
+         auto: false
+      credentials:
+         secretKey: test
+         accessKey: test
+#spring.autoconfigure.exclude: org.springframework.cloud.aws.autoconfigure.metrics.CloudWatchExportAutoConfiguration
+
+localstack:
+   enabled: true
+   services: 
+      - SQS
+   api-gateway:
+     enabled: false
+   kinesis:
+     enabled: false
+   dynamodb:
+     enabled: false
+   dynamodb-streams:
+     enabled: false
+   elasticsearch:
+     enabled: false
+   s3:
+     enabled: false
+   firehose:
+     enabled: false
+   sns:
+     enabled: false
+   sqs:
+     enabled: true
+   redshift:
+     enabled: false
+   ssm:
+     enabled: false
+   lambda:
+     enabled: false
