@@ -71,13 +71,13 @@ public class RealitimecomponentApplication {
 	}
 	
 	/** Provides a serialization template for outgoing SQS messages */
-/*	@Bean
+	@Bean
 	public QueueMessagingTemplate queueMessagingTemplate(AmazonSQSAsync amazonSQSAsync, MessageConverter messageConverter) {
 	    return new QueueMessagingTemplate(amazonSQSAsync, (ResourceIdResolver) null, messageConverter);
 	}
-*/
+
 	/** Provides JSON converter for SQS messages */
-/*	@Bean
+	@Bean
 	protected MessageConverter messageConverter(ObjectMapper objectMapper) {
 
 	  var converter = new MappingJackson2MessageConverter();
@@ -88,5 +88,5 @@ public class RealitimecomponentApplication {
 	  converter.setStrictContentTypeMatch(false);
 	  return converter;
 	}
-*/
+
 }
