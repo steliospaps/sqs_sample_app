@@ -23,8 +23,7 @@ aws --profile=fake --endpoint-url http://localhost:4566 sqs send-message --queue
 
 and check for messages sent by the app:
 ```
-aws --profile=fake --endpoint-url http://localhost:4566 sqs receive-message -
--queue-url http://localhost:4566/queue/output-queue 
+aws --profile=fake --endpoint-url http://localhost:4566 sqs receive-message --queue-url http://localhost:4566/queue/output-queue 
 ```
 
 run the app:
